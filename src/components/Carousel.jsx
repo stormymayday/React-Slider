@@ -6,13 +6,27 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 const Carousel = () => {
 
     const [people, setPeople] = useState(list);
-    const [currentPerson, setCurrentperson] = useState(0);
+    const [currentPerson, setCurrentPerson] = useState(1);
 
-    const prevSlide = () => {
+    const prevSlide = (setCurrentValue, array) => {
+
+        setCurrentValue((currentValue) => {
+
+            const result = (currentValue - 1 + array.length) % array.length;
+            return result;
+
+        });
 
     };
 
-    const nextSlide = () => {
+    const nextSlide = (setCurrentValue, array) => {
+
+        setCurrentValue((currentValue) => {
+
+            const result = (currentValue + 1) % array.length;
+            return result;
+
+        });
 
     };
 
@@ -24,7 +38,7 @@ const Carousel = () => {
                     const { id, image, name, title, quote } = person;
 
                     return (
-                        <article key={id} className='slide' style={{ transform: `translateX(${100 * personIndex}%)` }}>
+                        <article key={id} className='slide' style={{ transform: `translateX(${100 * (personIndex - currentPerson)}%)`, opacity: personIndex === currentPerson ? 1 : 0, visibility: personIndex === currentPerson ? 'visible' : 'hidden' }}>
                             <img className='person-img' src={image} alt={name} />
                             <h5 className='name'>{name}</h5>
                             <p className="title">{title}</p>
@@ -35,11 +49,15 @@ const Carousel = () => {
                 })
             }
 
-            <button type='button' className='prev' onClick={prevSlide}>
+            <button type='button' className='prev' onClick={() => {
+                prevSlide(setCurrentPerson, people);
+            }}>
                 <FiChevronLeft />
             </button>
 
-            <button type='button' className='next' onClick={nextSlide}>
+            <button type='button' className='next' onClick={() => {
+                nextSlide(setCurrentPerson, people);
+            }}>
                 <FiChevronRight />
             </button>
 
