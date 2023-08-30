@@ -292,6 +292,12 @@ ul {
   transition: var(--transition);
 }
 
+.name {
+  text-transform: uppercase;
+  color: var(--primary-500);
+  margin-bottom: 0.75rem;
+}
+
 .person-img {
   width: 150px;
   height: 150px;
