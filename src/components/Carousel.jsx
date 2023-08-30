@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { shortList, list, longList } from '../data.js';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
@@ -8,7 +8,23 @@ import nextSlide from '../utils/nextSlide.js';
 const Carousel = () => {
 
     const [people, setPeople] = useState(list);
-    const [currentPerson, setCurrentPerson] = useState(1);
+    const [currentPerson, setCurrentPerson] = useState(0);
+
+    // Autoplay Functionality
+    useEffect(() => {
+
+        let intervalId = setInterval(() => {
+
+            nextSlide(setCurrentPerson, people);
+
+        }, 3000);
+
+        // Cleanup Function
+        return () => {
+            clearInterval(intervalId);
+        };
+
+    }, [currentPerson]);
 
     return (
         <section className='slider-container'>
