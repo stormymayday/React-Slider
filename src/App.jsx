@@ -4,7 +4,7 @@ import SlickCarousel from "./components/SlickCarousel.jsx";
 const App = () => {
   return (
     <main>
-      <Carousel />
+      {/* <Carousel /> */}
       <SlickCarousel />
     </main>
   );
