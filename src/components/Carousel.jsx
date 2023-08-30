@@ -2,22 +2,12 @@ import { useState } from 'react';
 import { shortList, list, longList } from '../data.js';
 import { FaQuoteRight } from 'react-icons/fa';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import prevSlide from '../utils/prevSlide.js';
 
 const Carousel = () => {
 
     const [people, setPeople] = useState(list);
     const [currentPerson, setCurrentPerson] = useState(1);
-
-    const prevSlide = (setCurrentValue, array) => {
-
-        setCurrentValue((currentValue) => {
-
-            const result = (currentValue - 1 + array.length) % array.length;
-            return result;
-
-        });
-
-    };
 
     const nextSlide = (setCurrentValue, array) => {
 
