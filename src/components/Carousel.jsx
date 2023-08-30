@@ -6,6 +6,7 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 const Carousel = () => {
 
     const [people, setPeople] = useState(list);
+    const [currentPerson, setCurrentperson] = useState(0);
 
     const prevSlide = () => {
 
