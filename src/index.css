@@ -356,3 +356,9 @@ ul {
 .next {
   right: 0;
 }
+
+@media screen and (min-width: 800px) {
+  .text {
+    max-width: 45em;
+  }
+}
