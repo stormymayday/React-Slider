@@ -298,6 +298,12 @@ ul {
   margin-bottom: 0.75rem;
 }
 
+.title {
+  text-transform: capitalize;
+  color: var(--grey-700);
+  margin-bottom: 0.75rem;
+}
+
 .person-img {
   width: 150px;
   height: 150px;
