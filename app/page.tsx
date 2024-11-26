@@ -1,5 +1,9 @@
-import Slider from "@/components/Slider";
+import Carousel from "@/components/Carousel";
 
 export default function Home() {
-    return <Slider />;
+    return (
+        <main>
+            <Carousel />
+        </main>
+    );
 }
