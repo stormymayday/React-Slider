@@ -10,10 +10,20 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 function Carousel() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [slides, setSlides] = useState<SlideType[]>(list);
+    // const [slides, setSlides] = useState<SlideType[]>(list);
+    const slides: SlideType[] = list;
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-    const prevSlide = () => {};
-    const nextSlide = () => {};
+    const prevSlide = () => {
+        setCurrentSlide((currentSlide) => {
+            return (currentSlide - 1 + list.length) % list.length;
+        });
+    };
+    const nextSlide = () => {
+        setCurrentSlide((currentSlide) => {
+            return (currentSlide + 1) % list.length;
+        });
+    };
 
     return (
         <section className="slider-container">
@@ -24,7 +34,14 @@ function Carousel() {
                         <article
                             className="slide"
                             style={{
-                                transform: `translateX(${100 * slideIndex}%)`,
+                                transform: `translateX(${
+                                    100 * (slideIndex - currentSlide)
+                                }%)`,
+                                opacity: slideIndex === currentSlide ? 1 : 0,
+                                visibility:
+                                    slideIndex === currentSlide
+                                        ? "visible"
+                                        : "hidden",
                             }}
                             key={id}
                         >
