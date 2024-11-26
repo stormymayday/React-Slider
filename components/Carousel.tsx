@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { shortList, list, longList } from "@/data";
 import { SlideType } from "@/types";
 import Image from "next/image";
 import { FaQuoteRight } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import next from "next";
 
 function Carousel() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -24,6 +25,15 @@ function Carousel() {
             return (currentSlide + 1) % list.length;
         });
     };
+
+    useEffect(() => {
+        const sliderId = setInterval(() => {
+            nextSlide();
+        }, 2500);
+        return () => {
+            clearInterval(sliderId);
+        };
+    }, [currentSlide]);
 
     return (
         <section className="slider-container">
