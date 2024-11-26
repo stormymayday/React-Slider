@@ -7,7 +7,6 @@ import { SlideType } from "@/types";
 import Image from "next/image";
 import { FaQuoteRight } from "react-icons/fa";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import next from "next";
 
 function Carousel() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
