@@ -266,10 +266,15 @@ ul {
     max-width: 800px;
     position: relative;
     height: 450px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
+
 .slide {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -277,6 +282,7 @@ ul {
     height: 100%;
     transition: var(--transition);
 }
+
 .person-img {
     width: 150px;
     height: 150px;
@@ -292,23 +298,26 @@ ul {
     color: var(--primary-500);
     margin-bottom: 0.75rem;
 }
+
 .title {
     text-transform: capitalize;
     color: var(--grey-700);
     margin-bottom: 0.75rem;
 }
+
 .text {
     max-width: 35em;
     margin: 0 auto;
-    margin-top: 2rem;
     line-height: 2;
     color: var(--grey-500);
 }
+
 .icon {
     font-size: 3rem;
     margin-top: 1rem;
     color: var(--primary-500);
 }
+
 .prev,
 .next {
     position: absolute;
@@ -324,16 +333,19 @@ ul {
     cursor: pointer;
     transition: var(--transition);
 }
+
 .prev:hover,
 .next:hover {
     background: var(--primary-500);
 }
+
 .prev {
     left: 0;
 }
 .next {
     right: 0;
 }
+
 @media screen and (min-width: 800px) {
     .text {
         max-width: 45em;
@@ -344,27 +356,4 @@ ul {
         height: 2rem;
         font-size: 1.5rem;
     }
-}
-.next-slide {
-    transform: translateX(100%);
-}
-
-/* ============= Slick Carousel =============== */
-
-.slick-container {
-    margin: 0 auto;
-    margin-top: 10rem;
-    width: 80vw;
-    max-width: 800px;
-    text-align: center;
-}
-.slick-slide img {
-    display: inline-block;
-}
-
-.slick-prev::before {
-    color: var(--primary-500) !important;
-}
-.slick-next::before {
-    color: var(--primary-500) !important;
 }
