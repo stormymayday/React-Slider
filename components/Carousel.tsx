@@ -10,7 +10,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 function Carousel() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [slides, setSlides] = useState<SlideType[]>(shortList);
+    const [slides, setSlides] = useState<SlideType[]>(list);
 
     const prevSlide = () => {};
     const nextSlide = () => {};
@@ -18,10 +18,16 @@ function Carousel() {
     return (
         <section className="slider-container">
             {slides.length > 0 &&
-                slides.map((slide) => {
+                slides.map((slide, slideIndex) => {
                     const { id, image, name, title, quote } = slide;
                     return (
-                        <article className="slide" key={id}>
+                        <article
+                            className="slide"
+                            style={{
+                                transform: `translateX(${100 * slideIndex}%)`,
+                            }}
+                            key={id}
+                        >
                             <Image
                                 src={image}
                                 alt={name}
